@@ -28,9 +28,11 @@ public class Main {
           entry.postingsList = posting;
           index.put(word, entry);
         } else { // otherwise, the word is already in the dictionary
-          entry.termFreq++; // increment term frequency, number of times the term appears in the collection of documents
-          
-          // since we are scanning the files in order, we can assume that the last posting in the linked list is for the current document
+          entry.termFreq++; // increment term frequency, number of times the term appears in the collection
+                            // of documents
+
+          // since we are scanning the files in order, we can assume that the last posting
+          // in the linked list is for the current document
           Posting posting = entry.postingsList;
           while (posting.next != null) {
             // go to the last posting in the linked list
@@ -39,7 +41,8 @@ public class Main {
 
           // if the last posting in the linked list is for the current document
           if (posting.docId == i) {
-            posting.dtf++; // increment document term frequency, number of times the term appears in the document
+            posting.dtf++; // increment document term frequency, number of times the term appears in the
+                           // document
           } else {
             // otherwise, add a new posting to the linked list
             Posting newPosting = new Posting();
@@ -52,18 +55,20 @@ public class Main {
     }
 
     // search for a word
-    String word = "dawg";
+    String word = "knocks";
     DictEntry entry = index.get(word);
     if (entry != null) {
-      System.out.println("termFreq: " + entry.termFreq);
-      System.out.println("docFreq: " + entry.docFreq);
+      System.out.println("the word \"" + word + "\" is found");
+      System.out.println("number of times the word appeared in all documents: " + entry.termFreq);
+      System.out.println("number of documents containing the word: " + entry.docFreq);
       Posting posting = entry.postingsList;
       while (posting != null) {
-        System.out.println("docId: " + posting.docId + ", dtf: " + posting.dtf);
+        System.out.println(
+            "docId: " + posting.docId + ", number of times the word appeared in this document: " + posting.dtf);
         posting = posting.next;
       }
     } else {
-      System.out.println("word not found");
+      System.out.println("word " + word + " is not found");
     }
   }
 }
