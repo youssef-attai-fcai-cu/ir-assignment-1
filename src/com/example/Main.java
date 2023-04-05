@@ -53,8 +53,12 @@ public class Main {
       }
     }
 
+    Scanner scanner = new Scanner(System.in);
+
     // search for a word
-    String word = "knocks";
+    System.out.print("Enter a word: ");
+    String word = scanner.next();
+
     DictEntry entry = index.get(word);
     if (entry != null) {
       System.out.println("the word \"" + word + "\" is found");
