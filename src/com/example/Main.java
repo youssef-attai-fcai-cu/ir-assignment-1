@@ -7,7 +7,7 @@ public class Main {
     HashMap<String, DictEntry> index = new HashMap<String, DictEntry>(); // the inverted index aka dictionary
 
     // for each file: create a dictionary entry for each word in the file
-    for (int i = 1; i <= 3; i++) {
+    for (int i = 1; i <= 10; i++) {
       File file = new File("wordFile-" + i + ".txt");
       Scanner fileScanner = new Scanner(file);
 
