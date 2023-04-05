@@ -1,3 +1,5 @@
+// package com.example.invertedindex;
+
 public class Posting {
   public Posting next = null; // next posting in the linked list
   int docId;
